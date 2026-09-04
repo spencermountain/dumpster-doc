@@ -1,11 +1,29 @@
 # dumpster-doc
 
+parse a wikipedia dump into mongodb:
+
+```js
+import dumpsterDoc from 'dumpster-doc'
+
+const stats = await dumpsterDoc({
+  file: './swwiki-latest-pages-articles.xml',
+  url: 'mongodb://127.0.0.1:27017',
+  dbName: 'wikipedia',
+  collectionName: 'articles',
+  format: 'sm', // or any dumpster-lib format
+})
+```
+
+the parsing is done by [dumpster-lib](https://github.com/spencermountain/dumpster-lib), and any of its options (`workers`, `batchPageCount`, `namespace`...) can be passed in too. each batch is acknowledged by mongo before the parsers hand over the next, so memory stays flat.
+
 a batch writer for pushing high volumes of json into mongodb — built for wikipedia-dump parsing, where a pool of workers each pause their reader, hand off a batch of parsed articles, and resume once the batch is safely on the server.
 
 it is append-only by design: no reads, no updates, just fast unordered inserts.
 
+the writer on its own:
+
 ```js
-import write, { init, close, stats } from './src/index.js'
+import { write, init, close, stats } from 'dumpster-doc'
 
 init({ dbName: 'wikipedia', collectionName: 'articles' }) // optional
 
