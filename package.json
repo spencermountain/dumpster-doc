@@ -4,21 +4,16 @@
   "description": "parse a wikipedia dump into mongodb",
   "main": "./src/index.js",
   "scripts": {
-    "test": "node --test \"tests/*.test.js\""
+    "test": "node --test \"tests/*.test.js\"",
+    "lint": "eslint ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.5.0",
-      "onFail": "warn"
-    }
-  },
+  "author": "Spencer Kelly <spencermountain@gmail.com> (https://spencermountain.dev)",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "mongodb": "^7.5.0",
     "dumpster-lib": "^0.1.0"
-  }
+  },
+  "repository": "github:spencermountain/dumpster-doc"
 }
