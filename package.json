@@ -2,18 +2,19 @@
   "name": "dumpster-doc",
   "version": "1.0.0",
   "description": "parse a wikipedia dump into mongodb",
+  "license": "MIT",
+  "repository": "github:spencermountain/dumpster-doc",
+  "author": "Spencer Kelly <spencermountain@gmail.com> (https://spencermountain.dev)",
+  "type": "module",
   "main": "./src/index.js",
+  "sideEffects": true,
   "scripts": {
     "test": "node --test \"tests/*.test.js\"",
     "lint": "eslint ."
   },
   "keywords": [],
-  "author": "Spencer Kelly <spencermountain@gmail.com> (https://spencermountain.dev)",
-  "license": "MIT",
-  "type": "module",
   "dependencies": {
-    "mongodb": "^7.5.0",
-    "dumpster-lib": "^0.1.0"
-  },
-  "repository": "github:spencermountain/dumpster-doc"
+    "dumpster-lib": "^0.1.0",
+    "mongodb": "^7.5.0"
+  }
 }
